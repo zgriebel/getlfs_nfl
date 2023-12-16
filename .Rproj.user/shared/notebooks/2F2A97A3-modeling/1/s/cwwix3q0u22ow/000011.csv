@@ -1,0 +1,1 @@
+"0","df_to_model <- df %>% select(-pff_missedTackle, -tackle_oppId, -playDirection)"

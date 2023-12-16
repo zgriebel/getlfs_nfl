@@ -1,0 +1,1 @@
+"0","frame_of_tackle_opp <- frame_of_tackle_opp %>% filter(tackle_oppId %in% id_keep)"

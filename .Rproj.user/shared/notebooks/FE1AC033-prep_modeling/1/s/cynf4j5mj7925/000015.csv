@@ -1,0 +1,1 @@
+"0","df_to_model[is.na(df_to_model$made_first_contact),]$made_first_contact = 0"

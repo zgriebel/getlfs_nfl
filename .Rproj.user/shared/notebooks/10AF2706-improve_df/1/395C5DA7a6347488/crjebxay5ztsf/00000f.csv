@@ -1,0 +1,7 @@
+"0","df_to_model[df_to_model$playDirection == 'right',]$x = 120-  df_to_model[df_to_model$playDirection == 'right',]$x "
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'right',]$x_bc = 120-  df_to_model[df_to_model$playDirection == 'right',]$x_bc "
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'right',]$y = (53+(1/3))- df_to_model[df_to_model$playDirection == 'right',]$y"
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'right',]$y_bc = (53+(1/3))- df_to_model[df_to_model$playDirection == 'right',]$y_bc "

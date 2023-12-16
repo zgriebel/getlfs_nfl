@@ -1,0 +1,1 @@
+"0","id_keep <- tacklers %>% filter(dist_from_bc <3, tackle_opp == 1) %>% pull(tackle_oppId)"

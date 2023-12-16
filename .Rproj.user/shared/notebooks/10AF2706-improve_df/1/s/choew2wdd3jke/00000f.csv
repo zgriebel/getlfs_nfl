@@ -1,0 +1,8 @@
+"0","df_to_model$x_s <- df_to_model$s * cos((df_to_model$dir*(3.14/180)))"
+"0","df_to_model$y_s <- df_to_model$s * sin((df_to_model$dir*(3.14/180)))"
+"0","df_to_model$x_s_bc <- df_to_model$s_bc * cos((df_to_model$dir_bc*(3.14/180)))"
+"0","df_to_model$y_s_bc <- df_to_model$s_bc * sin((df_to_model$dir_bc*(3.14/180)))"
+"0","df_to_model$x_a<- df_to_model$a * cos((df_to_model$dir*(3.14/180)))"
+"0","df_to_model$y_a <- df_to_model$a * sin((df_to_model$dir*(3.14/180)))"
+"0","df_to_model$x_a_bc <- df_to_model$a_bc * sin((df_to_model$dir_bc*(3.14/180)))"
+"0","df_to_model$y_a_bc <- df_to_model$a_bc * cos((df_to_model$dir_bc*(3.14/180)))"

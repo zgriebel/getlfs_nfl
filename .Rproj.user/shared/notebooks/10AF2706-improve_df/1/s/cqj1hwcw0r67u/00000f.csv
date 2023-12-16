@@ -1,0 +1,3 @@
+"0","df$los = 0 "
+"0","# if yardlineside is defensive team set yardline less than 60 (yardline+10)"
+"0","df<- df %>% mutate(los = ifelse(yardlineSide == defensiveTeam, yardlineNumber+10, 120-yardlineNumber  ))"

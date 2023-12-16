@@ -1,0 +1,7 @@
+"0","set.seed(69)"
+"0","samp = createDataPartition(df$tackle,"
+"0","                           p = 0.7,"
+"0","                           list = FALSE)"
+"0","train = df[samp, ]"
+"0","test = df[-samp, ]"
+"0","rm(samp)"

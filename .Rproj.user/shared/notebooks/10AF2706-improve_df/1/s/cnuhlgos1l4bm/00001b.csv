@@ -1,0 +1,2 @@
+"0",""
+"0","yard_line <- yardline_add %>% filter(!duplicated((tackle_oppId)))"

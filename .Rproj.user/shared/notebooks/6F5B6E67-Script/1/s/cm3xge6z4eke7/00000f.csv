@@ -1,0 +1,3 @@
+"0","= read_csv(""df_to_model.csv"", show_col_types = FALSE)"
+"2","Error: unexpected '=' in ""=""
+"

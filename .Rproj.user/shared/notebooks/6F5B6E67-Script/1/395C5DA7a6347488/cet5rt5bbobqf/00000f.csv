@@ -1,0 +1,3 @@
+"0","pred_prob = predict(smote_tree, newdata = test, type = ""prob"")[,2]"
+"0","pred_class = factor(ifelse(pred_prob > 0.5, ""1"", ""0""))"
+"0",""

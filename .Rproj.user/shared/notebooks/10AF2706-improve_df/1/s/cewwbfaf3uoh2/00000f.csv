@@ -1,0 +1,4 @@
+"0","df_to_model$x_s_diff = df_to_model$x_s - df_to_model$x_s_bc"
+"0","df_to_model$y_s_diff = df_to_model$y_s - df_to_model$y_s_bc"
+"0","df_to_model$x_adiff = df_to_model$x_a - df_to_model$x_a_bc"
+"0","df_to_model$y_a_diff = df_to_model$y_a - df_to_model$y_a_bc"

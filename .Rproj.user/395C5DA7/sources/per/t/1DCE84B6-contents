@@ -1,0 +1,213 @@
+---
+title: "fix orientation"
+author: "Zach"
+date: "2023-12-14"
+output: html_document
+---
+
+```{r}
+rm(list = ls())
+library(devtools)
+library(dplyr)
+library(gganimate)
+library(ggforce)
+library(ggplot2)
+library(readr)
+```
+
+```{r}
+df <- read.csv('tackle_oppDec13.csv')
+```
+
+```{r}
+df_to_model <- read.csv('df_to_model.csv')
+```
+
+
+Lets get our direction velocities in vectors
+```{r}
+df_to_model$x_s <- df_to_model$s * cos((df_to_model$dir*(3.14/180)))
+df_to_model$y_s <- df_to_model$s * sin((df_to_model$dir*(3.14/180)))
+df_to_model$x_s_bc <- df_to_model$s_bc * cos((df_to_model$dir_bc*(3.14/180)))
+df_to_model$y_s_bc <- df_to_model$s_bc * sin((df_to_model$dir_bc*(3.14/180)))
+df_to_model$x_a<- df_to_model$a * cos((df_to_model$dir*(3.14/180)))
+df_to_model$y_a <- df_to_model$a * sin((df_to_model$dir*(3.14/180)))
+df_to_model$x_a_bc <- df_to_model$a_bc * sin((df_to_model$dir_bc*(3.14/180)))
+df_to_model$y_a_bc <- df_to_model$a_bc * cos((df_to_model$dir_bc*(3.14/180)))
+```
+
+
+
+
+We need to account for play direction. Lets start with x speed and acceleration. If negative value this means player is moving towards the left. If the play direction is left they are actually moving forward! We need to multiple this by *-1
+```{r}
+df_to_model[df_to_model$playDirection == 'left',]$x_s = df_to_model[df_to_model$playDirection == 'left',]$x_s *-1 
+
+df_to_model[df_to_model$playDirection == 'left',]$x_s_bc = df_to_model[df_to_model$playDirection == 'left',]$x_s_bc *-1 
+
+df_to_model[df_to_model$playDirection == 'left',]$x_a = df_to_model[df_to_model$playDirection == 'left',]$x_a *-1
+
+df_to_model[df_to_model$playDirection == 'left',]$x_a_bc = df_to_model[df_to_model$playDirection == 'left',]$x_a_bc *-1 
+```
+
+When the play is goine to the right. The y direction is inverted. 
+
+```{r}
+df_to_model[df_to_model$playDirection == 'right',]$y_s = df_to_model[df_to_model$playDirection == 'right',]$y_s *-1 
+
+df_to_model[df_to_model$playDirection == 'right',]$y_s_bc = df_to_model[df_to_model$playDirection == 'right',]$y_s_bc *-1 
+
+df_to_model[df_to_model$playDirection == 'right',]$y_a = df_to_model[df_to_model$playDirection == 'right',]$y_a *-1
+
+df_to_model[df_to_model$playDirection == 'right',]$y_a_bc = df_to_model[df_to_model$playDirection == 'right',]$y_a_bc *-1 
+```
+
+
+Next is orientation. Example. Player in current oriented 270 degrees. This is perfectly straight at the left endzone. If the play is going left we want this to be 0 degrees. If the play is going right we want this to be 180 degrees(completely backward). So if the play is going left we need to add 90. If to the right subtract 90. 
+
+```{r}
+df_to_model[df_to_model$playDirection == 'right',]$o = df_to_model[df_to_model$playDirection == 'right',]$o -90
+
+df_to_model[df_to_model$playDirection == 'right',]$o_bc = df_to_model[df_to_model$playDirection == 'right',]$o_bc -90
+
+df_to_model[df_to_model$playDirection == 'left',]$o = df_to_model[df_to_model$playDirection == 'left',]$o +90
+
+df_to_model[df_to_model$playDirection == 'left',]$o_bc = df_to_model[df_to_model$playDirection == 'left',]$o_bc +90
+```
+
+These calculations where correct. However it does not reset at 360 automatically. If above  or below 360 reset
+```{r}
+df_to_model<- df_to_model %>% mutate(o = ifelse(o >= 360, (o-360), ifelse( o<0, o+360, o) ))
+
+df_to_model<- df_to_model %>% mutate(o_bc = ifelse(o_bc >= 360, (o_bc-360), ifelse( o_bc<0, o_bc+360, o_bc) ))
+```
+
+
+```{r}
+df_to_model$x_s_diff = df_to_model$x_s - df_to_model$x_s_bc
+df_to_model$y_s_diff = df_to_model$y_s - df_to_model$y_s_bc
+df_to_model$x_adiff = df_to_model$x_a - df_to_model$x_a_bc
+df_to_model$y_a_diff = df_to_model$y_a - df_to_model$y_a_bc
+```
+
+
+
+
+
+
+Positioning is weird as well. Ex. Defender is x == 37 BC is x== 38. If the play is going right defender is behind, if the play is to the left the defender is infront. If we do 120(the length of the x axis) - x for left this will map out the locations properly. Y is similar where we need to subract 53.3 but this time from the right data
+```{r}
+df_to_model[df_to_model$playDirection == 'right',]$x = 120-  df_to_model[df_to_model$playDirection == 'right',]$x 
+
+df_to_model[df_to_model$playDirection == 'right',]$x_bc = 120-  df_to_model[df_to_model$playDirection == 'right',]$x_bc 
+
+df_to_model[df_to_model$playDirection == 'right',]$y = (53+(1/3))- df_to_model[df_to_model$playDirection == 'right',]$y
+
+df_to_model[df_to_model$playDirection == 'right',]$y_bc = (53+(1/3))- df_to_model[df_to_model$playDirection == 'right',]$y_bc 
+```
+
+
+
+
+
+```{r}
+write.csv(df_to_model, 'df_to_model.csv', row.names=FALSE)
+```
+
+
+```{r}
+plays <- read.csv('plays.csv')
+```
+
+```{r}
+plays_to_add <- plays %>% select(yardlineNumber, gameId, playId, yardlineSide) %>% filter(gameId %in% (unique(df$gameId)), playId %in% unique(df$playId))
+```
+
+```{r}
+df <- df %>% merge(plays_to_add)
+```
+
+Remember we have already oriented if offense is in their own territory they have an x coordinate of greater than 60. If Offense is in enemy terrioty(close to scoring) they has an x coordinate less than 60
+```{r}
+df$los = 0 
+# if yardlineside is defensive team set yardline less than 60 (yardline+10)
+df<- df %>% mutate(los = ifelse(yardlineSide == defensiveTeam, yardlineNumber+10, 120-yardlineNumber  ))
+```
+
+```{r}
+write.csv(df, 'tackle_oppDec13.csv', row.names=FALSE)
+```
+
+Lets find the distance the ball carrier is from the line of scrimage. Because of our previous work we can simply subtract our x variable from the line of scrimage. First we need to add the line of scrimage col
+```{r}
+yardline_add <- df %>% select(tackle_oppId, yardlineNumber)
+```
+
+```{r}
+
+yard_line <- yardline_add %>% filter(!duplicated((tackle_oppId)))
+```
+
+```{r}
+df_to_model <- df_to_model %>% merge(yard_line)
+```
+
+```{r}
+df_to_model$dis_from_los_x <- df_to_model$x_bc - df_to_model$yardlineNumber
+```
+
+```{r}
+df_to_model %>% ggplot() + geom_histogram(aes(x = dis_from_los_x))
+```
+We would expect a majority of tackles to take place a few yards after the line of scrimage. There are times tackles occur before the line of scrimmage so negative values make sense. This shows us our calculations make sense.
+
+Next we want to add the y value or where laterall the tackle is occuring. NFL football the hashes are so close together they do not affect the game or positioning much. We will simply use the horizontal middle of the field for the y value (53.33/2). Left or right also does not matter to us. We just want to anaylze how far to the sidelines the ball carrier is for that reason we will add absolute value
+
+```{r}
+#df_to_model$dis_from_los_x <- df_to_model$x_bc - df_to_model$yardlineNumber
+df_to_model$dis_from_los_y <- (df_to_model$y_bc - ((53 + (1/3))/2))
+```
+
+```{r}
+df_to_model <- read.csv('df_to_model.csv')
+```
+With having the distance from the line of scrimage the x and y coordinates don't add anything. A difference between the bc and tackler is valuable though.
+
+```{r}
+df_to_model$x_diff <- df_to_model$x - df_to_model$x_bc
+df_to_model$y_diff <- df_to_model$y - df_to_model$y_bc
+```
+
+
+```{r}
+df<- read.csv('tackle_oppDec13.csv')
+```
+
+
+
+```{r}
+df %>% merge(tackler_o) %>% merge(bc_o)
+```
+
+```{r}
+df_to_model<-read.csv('df_to_model.csv')
+```
+
+
+```{r}
+colnames(df_to_model)
+```
+
+```{r}
+df_to_model<- df_to_model %>% select(-pff_missedTackle, -playDirection, -x, -y, -s, -a, -dir, -x_bc, -y_bc, -s_bc, -a_bc, -yardlineNumber, -dir_bc)
+```
+
+
+```{r}
+df_to_model$o_diff = df_to_model$o_bc - df_to_model$o
+```
+
+```{r}
+write.csv(df_to_model, 'df_to_model.csv', row.names=FALSE)
+```
+

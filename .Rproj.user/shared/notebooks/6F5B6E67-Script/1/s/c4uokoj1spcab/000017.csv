@@ -1,0 +1,1 @@
+"0"," df %>% filter(tackle_oppId == 917, tackle_opp ==1) %>% select(tackle_oppId, displayName, jerseyNumber, tackle)"

@@ -1,0 +1,5 @@
+"0","set.seed(1122)"
+"0","samp = caret::createDataPartition(data$tackle, p = 0.7, list = FALSE)"
+"0","train = data[samp, ]"
+"0","test = data[-samp, ]"
+"0","rm(samp)"

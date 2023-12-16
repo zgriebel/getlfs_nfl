@@ -1,0 +1,3 @@
+"0","frameId_first_contact <- tracking %>% filter(event == 'first_contact') %>% pull(game_play_frameId)"
+"0","frameId_first_contact <- unique(frameId_first_contact)"
+"0","#get frameIds all the frames that are listed as ""first contact"" "

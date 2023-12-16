@@ -1,0 +1,4 @@
+"0","data %>%"
+"0","  keep(is.numeric) %>%"
+"0","  cor() %>%"
+"0","  corrplot::corrplot(tl.cex = 0.6)"

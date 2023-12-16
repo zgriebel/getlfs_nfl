@@ -1,0 +1,1 @@
+"0","tracking %>% filter(on_defense == 1, is.na(dist_from_bc))"

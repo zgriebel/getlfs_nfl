@@ -1,0 +1,4 @@
+"0","tracking_with_distance[tracking_with_distance$has_ball == 1,]$dist_from_bc <- 0"
+"2","Error in `[<-.data.frame`(`*tmp*`, tracking_with_distance$has_ball ==  : 
+  missing values are not allowed in subscripted assignments of data frames
+"

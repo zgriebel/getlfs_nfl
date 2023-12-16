@@ -1,0 +1,99 @@
+"0","library(caret)"
+"2","Warning: package ‘caret’ was built under R version 4.1.3"
+"2","Loading required package: lattice
+"
+"2","Registered S3 method overwritten by 'data.table':
+  method           from
+  print.data.table     
+"
+"0","library(randomForest)"
+"2","Warning: package ‘randomForest’ was built under R version 4.1.3"
+"2","randomForest 4.7-1.1
+"
+"2","Type rfNews() to see new features/changes/bug fixes.
+"
+"2","
+Attaching package: ‘randomForest’
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    margin
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    combine
+
+"
+"0","library(gbm)"
+"2","Warning: package ‘gbm’ was built under R version 4.1.3"
+"2","Loaded gbm 2.1.8.1
+"
+"0","library(DALEX)"
+"2","Warning: package ‘DALEX’ was built under R version 4.1.3"
+"2","Welcome to DALEX (version: 2.4.3).
+Find examples and detailed introduction at: http://ema.drwhy.ai/
+
+"
+"2","
+Attaching package: ‘DALEX’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    explain
+
+"
+"0","library(pROC)"
+"2","Warning: package ‘pROC’ was built under R version 4.1.3"
+"2","Type 'citation(""pROC"")' for a citation.
+"
+"2","
+Attaching package: ‘pROC’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    cov, smooth, var
+
+"
+"0","library(AppliedPredictiveModeling)"
+"2","Warning: package ‘AppliedPredictiveModeling’ was built under R version 4.1.3"
+"0","library(tidyverse)"
+"2","Warning: package ‘tidyverse’ was built under R version 4.1.3"
+"2","Warning: package ‘tibble’ was built under R version 4.1.3"
+"2","Warning: package ‘tidyr’ was built under R version 4.1.3"
+"2","Warning: package ‘purrr’ was built under R version 4.1.3"
+"2","Warning: package ‘forcats’ was built under R version 4.1.3"
+"2","Warning: package ‘lubridate’ was built under R version 4.1.3"
+"2","-- [1mAttaching core tidyverse packages[22m ---------------------- tidyverse 2.0.0 --
+[32mv[39m [34mforcats  [39m 1.0.0     [32mv[39m [34mstringr  [39m 1.5.1
+[32mv[39m [34mlubridate[39m 1.9.2     [32mv[39m [34mtibble   [39m 3.2.1
+[32mv[39m [34mpurrr    [39m 1.0.1     [32mv[39m [34mtidyr    [39m 1.3.0"
+"2","-- [1mConflicts[22m ---------------------------------------- tidyverse_conflicts() --
+[31mx[39m [34mrandomForest[39m::[32mcombine()[39m masks [34mdplyr[39m::combine()
+[31mx[39m [34mDALEX[39m::[32mexplain()[39m        masks [34mdplyr[39m::explain()
+[31mx[39m [34mdplyr[39m::[32mfilter()[39m         masks [34mstats[39m::filter()
+[31mx[39m [34mdplyr[39m::[32mlag()[39m            masks [34mstats[39m::lag()
+[31mx[39m [34mpurrr[39m::[32mlift()[39m           masks [34mcaret[39m::lift()
+[31mx[39m [34mrandomForest[39m::[32mmargin()[39m  masks [34mggplot2[39m::margin()
+[36mi[39m Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors"
+"0","library(performanceEstimation)"
+"2","Warning: package ‘performanceEstimation’ was built under R version 4.1.3"
+"0","library(glmnet)"
+"2","Warning: package ‘glmnet’ was built under R version 4.1.3"
+"2","Loading required package: Matrix
+"
+"2","Warning: package ‘Matrix’ was built under R version 4.1.3"
+"2","
+Attaching package: ‘Matrix’
+
+"
+"2","The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+"
+"2","Loaded glmnet 4.1-7
+"

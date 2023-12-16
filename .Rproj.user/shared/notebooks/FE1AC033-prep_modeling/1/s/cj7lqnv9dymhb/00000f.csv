@@ -1,0 +1,2 @@
+"0","#tracking <- tackle_df %>% merge(tracking, all = TRUE)"
+"0","write.csv(tracking, ""tracking_with_tacklesDec13.csv"", row.names=FALSE)"

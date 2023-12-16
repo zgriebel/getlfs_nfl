@@ -1,0 +1,1 @@
+"0","frame_table <- frame_table %>% filter(dist_from_bc<2) "

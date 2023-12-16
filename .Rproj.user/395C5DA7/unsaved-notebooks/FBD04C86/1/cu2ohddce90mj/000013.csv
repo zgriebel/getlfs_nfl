@@ -1,0 +1,4 @@
+"0","#set right to 1 left to 0"
+"0","df <- df %>% mutate(playDirection = case_when(playDirection == 'right'~ 1, playDirection=='left' ~ 0)) "
+"0",""
+"0","df <- df %>% mutate_at(vars(tackle, playDirection, made_first_contact), .funs = factor)"

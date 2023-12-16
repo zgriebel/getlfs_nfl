@@ -1,0 +1,7 @@
+"0","df_to_model[df_to_model$playDirection == 'right',]$o = df_to_model[df_to_model$playDirection == 'right',]$o -90"
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'right',]$o_bc = df_to_model[df_to_model$playDirection == 'right',]$o_bc -90"
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'left',]$o = df_to_model[df_to_model$playDirection == 'left',]$o +90"
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'left',]$o_bc = df_to_model[df_to_model$playDirection == 'left',]$o_bc +90"

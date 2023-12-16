@@ -1,0 +1,1 @@
+"0","plays_to_add <- plays %>% select(yardlineNumber, gameId, playId, yardlineSide) %>% filter(gameId %in% (unique(df$gameId)), playId %in% unique(df$playId))"

@@ -1,0 +1,1 @@
+"0","gbm_shap_43 = DALEX::predict_parts_shap(gbm_explain, data[data$tackle_oppId==918,], B=25)"

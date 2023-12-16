@@ -1,0 +1,7 @@
+"0","df_to_model[df_to_model$playDirection == 'right',]$y_s = df_to_model[df_to_model$playDirection == 'right',]$y_s *-1 "
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'right',]$y_s_bc = df_to_model[df_to_model$playDirection == 'right',]$y_s_bc *-1 "
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'right',]$y_a = df_to_model[df_to_model$playDirection == 'right',]$y_a *-1"
+"0",""
+"0","df_to_model[df_to_model$playDirection == 'right',]$y_a_bc = df_to_model[df_to_model$playDirection == 'right',]$y_a_bc *-1 "

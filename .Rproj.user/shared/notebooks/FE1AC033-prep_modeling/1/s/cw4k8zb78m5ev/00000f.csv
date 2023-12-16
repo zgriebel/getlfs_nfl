@@ -1,0 +1,4 @@
+"0","frame_table <- read.csv('first_contact')"
+"2","Warning: cannot open file 'first_contact': No such file or directory"
+"2","Error in file(file, ""rt"") : cannot open the connection
+"

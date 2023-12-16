@@ -1,0 +1,6 @@
+"0","#this is every frame that has data for distance from bc"
+"0","length(unique(bc_dist_frame_table$game_play_frameId))"
+"1","[1]"
+"1"," 57078"
+"1","
+"

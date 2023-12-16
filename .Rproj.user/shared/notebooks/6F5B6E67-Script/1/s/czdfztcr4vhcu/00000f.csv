@@ -1,0 +1,1 @@
+"0","prob_24 = predict(gbm_model, newdata = data[data$tackle_oppId==917,], type=""prob"")[,2]"

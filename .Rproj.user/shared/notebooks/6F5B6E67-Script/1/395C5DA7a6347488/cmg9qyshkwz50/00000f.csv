@@ -1,0 +1,2 @@
+"0","data[sapply(data, is.character)] <- lapply(data[sapply(data, is.character)], "
+"0","                                       as.factor)"
